@@ -894,8 +894,15 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                             const Duration(
                                                                 milliseconds:
                                                                     100),
-                                                            () => safeSetState(
-                                                                () {}),
+                                                            () async {
+                                                              FFAppState()
+                                                                      .notificationName =
+                                                                  _model
+                                                                      .nameCreateTextController
+                                                                      .text;
+                                                              safeSetState(
+                                                                  () {});
+                                                            },
                                                           ),
                                                           autofocus: true,
                                                           autofillHints: const [
@@ -1038,8 +1045,15 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                             const Duration(
                                                                 milliseconds:
                                                                     100),
-                                                            () => safeSetState(
-                                                                () {}),
+                                                            () async {
+                                                              FFAppState()
+                                                                      .notificationPhoneNumber =
+                                                                  _model
+                                                                      .mobileCreateTextController
+                                                                      .text;
+                                                              safeSetState(
+                                                                  () {});
+                                                            },
                                                           ),
                                                           autofocus: true,
                                                           autofillHints: const [
@@ -1183,8 +1197,15 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                             const Duration(
                                                                 milliseconds:
                                                                     100),
-                                                            () => safeSetState(
-                                                                () {}),
+                                                            () async {
+                                                              FFAppState()
+                                                                      .notificationEmail =
+                                                                  _model
+                                                                      .emailAddressCreateTextController
+                                                                      .text;
+                                                              safeSetState(
+                                                                  () {});
+                                                            },
                                                           ),
                                                           autofocus: true,
                                                           autofillHints: const [
@@ -1784,6 +1805,25 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                       null) {
                                                                     return;
                                                                   }
+
+                                                                  await PushNotificationUsersRecord
+                                                                      .collection
+                                                                      .doc(user
+                                                                          .uid)
+                                                                      .update(
+                                                                          createPushNotificationUsersRecordData(
+                                                                        displayName:
+                                                                            FFAppState().notificationName,
+                                                                        email: FFAppState()
+                                                                            .notificationEmail,
+                                                                        photoUrl:
+                                                                            '',
+                                                                        createdTime:
+                                                                            getCurrentTimestamp,
+                                                                        phoneNumber:
+                                                                            FFAppState().notificationPhoneNumber,
+                                                                        uid: '',
+                                                                      ));
 
                                                                   FFAppState()
                                                                           .isListener =

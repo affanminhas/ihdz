@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -1031,6 +1032,23 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                     .vornameundNameTextController,
                                                                 focusNode: _model
                                                                     .vornameundNameFocusNode,
+                                                                onChanged: (_) =>
+                                                                    EasyDebounce
+                                                                        .debounce(
+                                                                  '_model.vornameundNameTextController',
+                                                                  const Duration(
+                                                                      milliseconds:
+                                                                          2000),
+                                                                  () async {
+                                                                    FFAppState()
+                                                                            .notificationName =
+                                                                        _model
+                                                                            .vornameundNameTextController
+                                                                            .text;
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                ),
                                                                 autofocus: true,
                                                                 autofillHints: const [
                                                                   AutofillHints
@@ -1281,6 +1299,23 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                     .emailAddressCreateTextController,
                                                                 focusNode: _model
                                                                     .emailAddressCreateFocusNode,
+                                                                onChanged: (_) =>
+                                                                    EasyDebounce
+                                                                        .debounce(
+                                                                  '_model.emailAddressCreateTextController',
+                                                                  const Duration(
+                                                                      milliseconds:
+                                                                          2000),
+                                                                  () async {
+                                                                    FFAppState()
+                                                                            .notificationEmail =
+                                                                        _model
+                                                                            .emailAddressCreateTextController
+                                                                            .text;
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                ),
                                                                 autofocus: true,
                                                                 autofillHints: const [
                                                                   AutofillHints
@@ -1406,6 +1441,23 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                     .mobileNumberCreateTextController,
                                                                 focusNode: _model
                                                                     .mobileNumberCreateFocusNode,
+                                                                onChanged: (_) =>
+                                                                    EasyDebounce
+                                                                        .debounce(
+                                                                  '_model.mobileNumberCreateTextController',
+                                                                  const Duration(
+                                                                      milliseconds:
+                                                                          2000),
+                                                                  () async {
+                                                                    FFAppState()
+                                                                            .notificationPhoneNumber =
+                                                                        _model
+                                                                            .mobileNumberCreateTextController
+                                                                            .text;
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                ),
                                                                 autofocus: true,
                                                                 autofillHints: const [
                                                                   AutofillHints
@@ -2101,6 +2153,35 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                           return;
                                                                         }
 
+                                                                        await PushNotificationUsersRecord
+                                                                            .collection
+                                                                            .doc(user.uid)
+                                                                            .update(createPushNotificationUsersRecordData(
+                                                                              displayName: FFAppState().notificationName,
+                                                                              email: FFAppState().notificationEmail,
+                                                                              photoUrl: '',
+                                                                              createdTime: getCurrentTimestamp,
+                                                                              phoneNumber: FFAppState().notificationPhoneNumber,
+                                                                              uid: '',
+                                                                            ));
+
+                                                                        await ZuhoererRecord
+                                                                            .collection
+                                                                            .doc()
+                                                                            .set(createZuhoererRecordData(
+                                                                              email: _model.emailAddressCreateTextController.text,
+                                                                              displayName: _model.vornameundNameTextController.text,
+                                                                              createdTime: getCurrentTimestamp,
+                                                                              phoneNumber: _model.mobileNumberCreateTextController.text,
+                                                                              address: _model.addressCreateTextController.text,
+                                                                              dateOfBirth: dateTimeFormat("yMMMd", _model.datePicked),
+                                                                              photoUrl: '',
+                                                                              active: false,
+                                                                              uid: currentUserUid,
+                                                                              isVerified: false,
+                                                                              idFront: '',
+                                                                              idBack: '',
+                                                                            ));
                                                                         await authManager
                                                                             .sendEmailVerification();
                                                                         ScaffoldMessenger.of(context)

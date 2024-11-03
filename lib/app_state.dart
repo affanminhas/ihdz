@@ -34,6 +34,24 @@ class FFAppState extends ChangeNotifier {
     _isListener = value;
     prefs.setBool('ff_isListener', value);
   }
+
+  String _notificationEmail = '';
+  String get notificationEmail => _notificationEmail;
+  set notificationEmail(String value) {
+    _notificationEmail = value;
+  }
+
+  String _notificationName = '';
+  String get notificationName => _notificationName;
+  set notificationName(String value) {
+    _notificationName = value;
+  }
+
+  String _notificationPhoneNumber = '';
+  String get notificationPhoneNumber => _notificationPhoneNumber;
+  set notificationPhoneNumber(String value) {
+    _notificationPhoneNumber = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

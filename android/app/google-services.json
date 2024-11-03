@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "626434709041",
+    "project_id": "ihdz-fbnv6x",
+    "storage_bucket": "ihdz-fbnv6x.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626434709041:android:d614cb5b88f4368304a710",
+        "android_client_info": {
+          "package_name": "com.mycompany.ihdz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626434709041-gg2ac82f843im46paucei0e43mqejjfq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.ihdz",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "626434709041-6ftkapoebqghj7io22m69so9fumkjha7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFKJu8BTR_eo3YGPtHvOgJ475y4f0NHzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626434709041-6ftkapoebqghj7io22m69so9fumkjha7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626434709041-r5b2f99esegkc418e9t57v60tc5uatl5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.ihdz"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

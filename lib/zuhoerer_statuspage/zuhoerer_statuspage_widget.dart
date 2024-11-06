@@ -5,6 +5,7 @@ import '/components/menu_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'zuhoerer_statuspage_model.dart';
 export 'zuhoerer_statuspage_model.dart';
@@ -166,6 +167,20 @@ class _ZuhoererStatuspageWidgetState extends State<ZuhoererStatuspageWidget> {
                                                           createZuhoererRecordData(
                                                     active: _model.switchValue,
                                                   ));
+                                                  _model.userFavorite =
+                                                      await queryUsersRecordOnce(
+                                                    queryBuilder:
+                                                        (usersRecord) =>
+                                                            usersRecord.where(
+                                                      'favourites',
+                                                      arrayContains:
+                                                          zuhoererStatuspageZuhoererRecord
+                                                              .reference,
+                                                    ),
+                                                    singleRecord: true,
+                                                  ).then((s) => s.firstOrNull);
+
+                                                  safeSetState(() {});
                                                 } else {
                                                   await zuhoererStatuspageZuhoererRecord
                                                       .reference

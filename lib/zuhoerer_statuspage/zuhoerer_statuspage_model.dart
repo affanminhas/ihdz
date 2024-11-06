@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/components/footer_widget.dart';
 import '/components/menu_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -12,6 +13,8 @@ class ZuhoererStatuspageModel
   late MenuModel menuModel;
   // State field(s) for Switch widget.
   bool? switchValue;
+  // Stores action output result for [Firestore Query - Query a collection] action in Switch widget.
+  UsersRecord? userFavorite;
   // Model for Footer component.
   late FooterModel footerModel;
 

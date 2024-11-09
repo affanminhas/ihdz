@@ -195,6 +195,18 @@ class _PasswortvergessenWidgetState extends State<PasswortvergessenWidget> {
                       email: _model.emailAddressTextController.text,
                       context: context,
                     );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text(
+                          'Email to reset password has been sent',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        duration: const Duration(milliseconds: 4000),
+                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                      ),
+                    );
                   },
                   text: 'Weitermachen',
                   options: FFButtonOptions(
@@ -238,7 +250,7 @@ class _PasswortvergessenWidgetState extends State<PasswortvergessenWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Back to login ',
+                          'Zurück zur Anmeldung',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(

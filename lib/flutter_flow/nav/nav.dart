@@ -188,6 +188,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'WebViewTEST2',
           path: '/webViewTEST2',
           builder: (context, params) => const WebViewTEST2Widget(),
+        ),
+        FFRoute(
+          name: 'MeetRequests',
+          path: '/meetRequests',
+          builder: (context, params) => const MeetRequestsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

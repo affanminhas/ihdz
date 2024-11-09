@@ -241,9 +241,7 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                         .labelMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
+                                                          color: Colors.white,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -860,9 +858,8 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
+                                                                color: Colors
+                                                                    .white,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:

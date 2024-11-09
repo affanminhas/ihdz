@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'menu_model.dart';
@@ -208,14 +209,25 @@ class _MenuWidgetState extends State<MenuWidget> {
                     child: Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(37.0, 50.0, 50.0, 0.0),
-                      child: Text(
-                        'Kontaktieren Sie uns',
-                        style:
-                            FlutterFlowTheme.of(context).headlineSmall.override(
-                                  fontFamily: 'Inter Tight',
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await actions.openEmailApp();
+                        },
+                        child: Text(
+                          'Kontaktieren Sie uns',
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Inter Tight',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                fontSize: 20.0,
+                                letterSpacing: 0.0,
+                              ),
+                        ),
                       ),
                     ),
                   ),
@@ -289,7 +301,7 @@ class _MenuWidgetState extends State<MenuWidget> {
               color: const Color(0x00FFFFFF),
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: 'Inter Tight',
-                    color: Colors.white,
+                    color: FlutterFlowTheme.of(context).secondary,
                     letterSpacing: 0.0,
                   ),
               elevation: 0.0,

@@ -1284,7 +1284,8 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Inter Tight',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,

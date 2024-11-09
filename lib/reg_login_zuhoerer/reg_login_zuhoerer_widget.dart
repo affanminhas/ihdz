@@ -289,6 +289,8 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Inter Tight',
+                                                                    color: Colors
+                                                                        .white,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),

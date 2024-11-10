@@ -336,6 +336,8 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                                         'Treffen Sie die Anfrage',
                                     notificationText:
                                         '${createMeetRoomUsersRecord?.displayName} um ein Treffen gebeten',
+                                    notificationImageUrl:
+                                        'https://firebasestorage.googleapis.com/v0/b/ihdz-fbnv6x.appspot.com/o/IHDZ%202%20Logo.png?alt=media&token=56d6b641-6916-44e8-ab8d-848d49214441',
                                     userRefs: [_model.pushNotifUser!.reference],
                                     initialPageName: 'MeetRequests',
                                     parameterData: {},

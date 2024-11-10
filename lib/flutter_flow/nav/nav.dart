@@ -193,6 +193,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MeetRequests',
           path: '/meetRequests',
           builder: (context, params) => const MeetRequestsWidget(),
+        ),
+        FFRoute(
+          name: 'CreateMeetRoom',
+          path: '/createMeetRoom',
+          builder: (context, params) => CreateMeetRoomWidget(
+            listnerRef: params.getParam(
+              'listnerRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Zuhoerer'],
+            ),
+            email: params.getParam(
+              'email',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

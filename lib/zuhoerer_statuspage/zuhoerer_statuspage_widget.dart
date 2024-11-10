@@ -209,7 +209,7 @@ class _ZuhoererStatuspageWidgetState extends State<ZuhoererStatuspageWidget> {
                                         context.pushNamed('ProfilZuHoerer');
                                       },
                                       text:
-                                          'Please complete your profile to go online',
+                                          'Bitte vervollständigen Sie Ihr Profil, um online zu gehen',
                                       icon: const Icon(
                                         Icons.arrow_forward,
                                         size: 15.0,
@@ -291,7 +291,7 @@ class _ZuhoererStatuspageWidgetState extends State<ZuhoererStatuspageWidget> {
                                             context.pushNamed('MeetRequests');
                                           },
                                           child: Container(
-                                            width: 250.0,
+                                            width: 280.0,
                                             height: 50.0,
                                             decoration: BoxDecoration(
                                               color: Colors.black,
@@ -318,7 +318,7 @@ class _ZuhoererStatuspageWidgetState extends State<ZuhoererStatuspageWidget> {
                                                         const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
-                                                      'Meet Requests',
+                                                      'Erfüllen Sie Anfragen',
                                                       textAlign:
                                                           TextAlign.start,
                                                       style: FlutterFlowTheme

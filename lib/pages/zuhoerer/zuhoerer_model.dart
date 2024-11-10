@@ -10,8 +10,6 @@ class ZuhoererModel extends FlutterFlowModel<ZuhoererWidget> {
 
   // Model for Menu component.
   late MenuModel menuModel;
-  // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
-  PushNotificationUsersRecord? pushNotifUser;
   // State field(s) for Checkbox widget.
   Map<ZuhoererRecord, bool> checkboxValueMap = {};
   List<ZuhoererRecord> get checkboxCheckedItems =>

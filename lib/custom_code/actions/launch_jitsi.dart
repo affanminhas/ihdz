@@ -9,11 +9,11 @@ import 'package:flutter/material.dart';
 
 import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 
-Future<void> launchJitsi() async {
+Future<void> launchJitsi(String roomName, String displayName) async {
   final _jitsiMeetPlugin = JitsiMeet();
 
   var options = JitsiMeetConferenceOptions(
-    room: 'flutterflowtest',
+    room: roomName,
     //serverURL: "https://meet.jit.si",
     serverURL: "https://meet.ffmuc.net/",
     // Or use your Jitsi server URL
@@ -41,7 +41,7 @@ Future<void> launchJitsi() async {
       FeatureFlags.audioOnlyButtonEnabled: true,
     },
     userInfo: JitsiMeetUserInfo(
-      displayName: "Anonymous",
+      displayName: displayName,
     ),
   );
 

@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'serialization_util.dart';
+import '../backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -127,6 +129,12 @@ final parametersBuilderMap =
   'WEBViewTest': ParameterData.none(),
   'WebViewTEST2': ParameterData.none(),
   'MeetRequests': ParameterData.none(),
+  'CreateMeetRoom': (data) async => ParameterData(
+        allParams: {
+          'listnerRef': getParameter<DocumentReference>(data, 'listnerRef'),
+          'email': getParameter<String>(data, 'email'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

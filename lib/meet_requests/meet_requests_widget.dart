@@ -77,7 +77,7 @@ class _MeetRequestsWidgetState extends State<MeetRequestsWidget> {
               iconTheme: const IconThemeData(color: Colors.white),
               automaticallyImplyLeading: true,
               title: Text(
-                'Meet Requests',
+                'Erfüllen Sie Anfragen',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: Colors.white,
@@ -204,7 +204,7 @@ class _MeetRequestsWidgetState extends State<MeetRequestsWidget> {
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      '${containerUsersRecord.displayName} requested for a meet',
+                                                      '${containerUsersRecord.displayName}um ein Treffen gebeten',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -235,7 +235,7 @@ class _MeetRequestsWidgetState extends State<MeetRequestsWidget> {
                                                     text: TextSpan(
                                                       children: [
                                                         TextSpan(
-                                                          text: 'Room Id:  ',
+                                                          text: 'Raum-ID:  ',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -284,12 +284,16 @@ class _MeetRequestsWidgetState extends State<MeetRequestsWidget> {
                                                   ),
                                                   FFButtonWidget(
                                                     onPressed: () async {
-                                                      await actions
-                                                          .launchJitsi();
+                                                      await actions.launchJitsi(
+                                                        listViewUserCallRequestsRecord
+                                                            .roomId,
+                                                        meetRequestsZuhoererRecord!
+                                                            .displayName,
+                                                      );
                                                     },
-                                                    text: 'Join',
+                                                    text: 'Verbinden',
                                                     options: FFButtonOptions(
-                                                      width: 80.0,
+                                                      width: 90.0,
                                                       height: 35.0,
                                                       padding:
                                                           const EdgeInsetsDirectional

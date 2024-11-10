@@ -1,11 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/footer_widget.dart';
 import '/components/menu_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'zuhoerer_model.dart';
 export 'zuhoerer_model.dart';
@@ -398,6 +400,36 @@ class _ZuhoererWidgetState extends State<ZuhoererWidget> {
                                                             },
                                                           ),
                                                         });
+                                                        _model.pushNotifUser =
+                                                            await queryPushNotificationUsersRecordOnce(
+                                                          queryBuilder:
+                                                              (pushNotificationUsersRecord) =>
+                                                                  pushNotificationUsersRecord
+                                                                      .where(
+                                                            'email',
+                                                            isEqualTo:
+                                                                listViewZuhoererRecord
+                                                                    .email,
+                                                          ),
+                                                          singleRecord: true,
+                                                        ).then((s) =>
+                                                                s.firstOrNull);
+                                                        triggerPushNotification(
+                                                          notificationTitle:
+                                                              'Lieblingshörer',
+                                                          notificationText:
+                                                              '${zuhoererUsersRecord.displayName} markiere dich als Favorit',
+                                                          userRefs: [
+                                                            _model
+                                                                .pushNotifUser!
+                                                                .reference
+                                                          ],
+                                                          initialPageName:
+                                                              'MeetRequests',
+                                                          parameterData: {},
+                                                        );
+
+                                                        safeSetState(() {});
                                                       } else {
                                                         await zuhoererUsersRecord!
                                                             .reference

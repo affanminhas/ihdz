@@ -15,6 +15,8 @@ class ZuhoererModel extends FlutterFlowModel<ZuhoererWidget> {
   List<ZuhoererRecord> get checkboxCheckedItems =>
       checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
 
+  // Stores action output result for [Firestore Query - Query a collection] action in Checkbox widget.
+  PushNotificationUsersRecord? pushNotifUser;
   // Model for Footer component.
   late FooterModel footerModel;
 

@@ -4,6 +4,7 @@ import '/backend/push_notifications/push_notifications_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -330,29 +331,18 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                                     ),
                                     singleRecord: true,
                                   ).then((s) => s.firstOrNull);
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        widget.email!,
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      duration: const Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                    ),
-                                  );
                                   triggerPushNotification(
-                                    notificationTitle: 'Meet Request',
+                                    notificationTitle:
+                                        'Treffen Sie die Anfrage',
                                     notificationText:
-                                        '${createMeetRoomUsersRecord?.displayName} requested for a meet',
-                                    notificationSound: 'default',
+                                        '${createMeetRoomUsersRecord?.displayName} um ein Treffen gebeten',
                                     userRefs: [_model.pushNotifUser!.reference],
                                     initialPageName: 'MeetRequests',
                                     parameterData: {},
+                                  );
+                                  await actions.launchJitsi(
+                                    _model.roomNameTextController.text,
+                                    _model.yourNameTextController.text,
                                   );
 
                                   safeSetState(() {});

@@ -84,7 +84,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/ihdz-fbnv6x.appspot.com/o/IHDZ%20Start.png?alt=media&token=52befd3a-c134-408f-9932-c9066b90db44',
                   width: 396.0,
-                  height: 565.0,
+                  height: 500.0,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -136,7 +136,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             Align(
               alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                 child: wrapWithModel(
                   model: _model.footerModel,
                   updateCallback: () => safeSetState(() {}),

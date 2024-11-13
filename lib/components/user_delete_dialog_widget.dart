@@ -191,17 +191,17 @@ class _UserDeleteDialogWidgetState extends State<UserDeleteDialogWidget> {
                         onPressed: !_model.checkboxValue!
                             ? null
                             : () async {
-                                await authManager.deleteUser(context);
-                                unawaited(
-                                  () async {
-                                    await widget.userRef!.delete();
-                                  }(),
-                                );
                                 unawaited(
                                   () async {
                                     await currentUserReference!.delete();
                                   }(),
                                 );
+                                unawaited(
+                                  () async {
+                                    await widget.userRef!.delete();
+                                  }(),
+                                );
+                                await authManager.deleteUser(context);
 
                                 context.goNamedAuth(
                                     'AuthCheckView', context.mounted);

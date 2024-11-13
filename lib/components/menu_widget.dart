@@ -231,6 +231,40 @@ class _MenuWidgetState extends State<MenuWidget> {
                       ),
                     ),
                   ),
+                  Align(
+                    alignment: const AlignmentDirectional(-0.1, 0.35),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          await launchURL(
+                              'https://buy.stripe.com/9AQ2blbdd83k8kodQQ');
+                        },
+                        text: 'Spenden',
+                        options: FFButtonOptions(
+                          height: 40.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: const Color(0x00FFFFFF),
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: 'Inter Tight',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                letterSpacing: 0.0,
+                              ),
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).secondary,
+                          ),
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                      ),
+                    ),
+                  ),
                   const Spacer(),
                   if (currentJwtToken == '')
                     Align(
@@ -286,31 +320,6 @@ class _MenuWidgetState extends State<MenuWidget> {
               ),
             ),
           ],
-        ),
-        Align(
-          alignment: const AlignmentDirectional(-0.1, 0.35),
-          child: FFButtonWidget(
-            onPressed: () async {
-              await launchURL('https://buy.stripe.com/9AQ2blbdd83k8kodQQ');
-            },
-            text: 'Spenden',
-            options: FFButtonOptions(
-              height: 40.0,
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              color: const Color(0x00FFFFFF),
-              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: 'Inter Tight',
-                    color: FlutterFlowTheme.of(context).secondary,
-                    letterSpacing: 0.0,
-                  ),
-              elevation: 0.0,
-              borderSide: BorderSide(
-                color: FlutterFlowTheme.of(context).secondary,
-              ),
-              borderRadius: BorderRadius.circular(4.0),
-            ),
-          ),
         ),
       ],
     );

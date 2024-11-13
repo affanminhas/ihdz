@@ -178,11 +178,11 @@ class _ZuhoererWidgetState extends State<ZuhoererWidget> {
                                     height: 70.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .primaryText,
                                       borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryText,
                                         width: 1.0,
                                       ),
                                     ),
@@ -246,7 +246,7 @@ class _ZuhoererWidgetState extends State<ZuhoererWidget> {
                                                         : 'BELEGET',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium
+                                                        .labelMedium
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           color: listViewZuhoererRecord
@@ -271,12 +271,10 @@ class _ZuhoererWidgetState extends State<ZuhoererWidget> {
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium
+                                                        .labelLarge
                                                         .override(
                                                           fontFamily: 'Inter',
                                                           letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                 ),
@@ -338,10 +336,12 @@ class _ZuhoererWidgetState extends State<ZuhoererWidget> {
                                                   'FAVORIT',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium
+                                                      .labelSmall
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
                                                       ),
                                                 ),
                                               ),

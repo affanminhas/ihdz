@@ -59,6 +59,7 @@ dependencies:
   firebase_storage_web: 3.10.2
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.4.1
+  flutter_email_sender: ^6.0.3
   flutter_native_splash: 2.4.1
   flutter_plugin_android_lifecycle: 2.0.20
   font_awesome_flutter: 10.7.0

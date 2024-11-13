@@ -84,55 +84,59 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: Image.network(
                   'https://firebasestorage.googleapis.com/v0/b/ihdz-fbnv6x.appspot.com/o/IHDZ%20Start.png?alt=media&token=52befd3a-c134-408f-9932-c9066b90db44',
                   width: 396.0,
-                  height: 500.0,
-                  fit: BoxFit.fitHeight,
+                  height: 455.9,
+                  fit: BoxFit.contain,
                 ),
               ),
             ),
-            Align(
-              alignment: const AlignmentDirectional(0.7, -10.0),
-              child: FFButtonWidget(
-                onPressed: () async {
-                  context.pushNamed('RegLogin');
-                },
-                text: 'Start',
-                options: FFButtonOptions(
-                  width: 150.0,
-                  height: 50.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: Colors.black,
-                  textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'Inter Tight',
-                        color: const Color(0xFF03FFD9),
-                        fontSize: 125.0,
-                        letterSpacing: 0.0,
-                      ),
-                  elevation: 0.0,
-                  borderSide: const BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-              ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(0.0, 1.0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 90.0, 0.0, 0.0),
-                child: Text(
-                  'ZuHörer melden sich bitte im Menu an',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
+            Expanded(
+              child: Align(
+                alignment: const AlignmentDirectional(1.0, 0.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      context.pushNamed('RegLogin');
+                    },
+                    text: 'Start',
+                    options: FFButtonOptions(
+                      width: 150.0,
+                      height: 50.0,
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Colors.black,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleMedium.override(
+                                fontFamily: 'Inter Tight',
+                                color: const Color(0xFF03FFD9),
+                                fontSize: 125.0,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 0.0,
+                      borderSide: const BorderSide(
                         color: Colors.white,
-                        fontSize: 14.0,
-                        letterSpacing: 0.0,
                       ),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
                 ),
               ),
             ),
             const Spacer(),
+            Align(
+              alignment: const AlignmentDirectional(0.0, 1.0),
+              child: Text(
+                'ZuHörer melden sich bitte im Menu an',
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      color: Colors.white,
+                      fontSize: 14.0,
+                      letterSpacing: 0.0,
+                    ),
+              ),
+            ),
             Align(
               alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(

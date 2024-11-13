@@ -8,6 +8,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'create_meet_room_model.dart';
 export 'create_meet_room_model.dart';
 
@@ -35,10 +36,19 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
     super.initState();
     _model = createModel(context, () => CreateMeetRoomModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.randomId = actions.generateRandomRoomId();
+      safeSetState(() {
+        _model.roomNameTextController?.text = _model.randomId!;
+        _model.roomNameTextController?.selection = TextSelection.collapsed(
+            offset: _model.roomNameTextController!.text.length);
+      });
+    });
+
     _model.roomNameTextController ??= TextEditingController();
     _model.roomNameFocusNode ??= FocusNode();
 
-    _model.yourNameTextController ??= TextEditingController();
     _model.yourNameFocusNode ??= FocusNode();
   }
 
@@ -119,7 +129,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Raumname',
+                      'Raum-ID',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
                             color: Colors.white,
@@ -143,6 +153,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                           ),
                           autofocus: true,
                           autofillHints: const [AutofillHints.email],
+                          readOnly: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelStyle: FlutterFlowTheme.of(context)
@@ -217,7 +228,10 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                       child: SizedBox(
                         width: double.infinity,
                         child: TextFormField(
-                          controller: _model.yourNameTextController,
+                          controller: _model.yourNameTextController ??=
+                              TextEditingController(
+                            text: createMeetRoomUsersRecord?.displayName,
+                          ),
                           focusNode: _model.yourNameFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.yourNameTextController',

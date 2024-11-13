@@ -107,7 +107,7 @@ class _PasswortvergessenWidgetState extends State<PasswortvergessenWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                 child: Text(
-                  'Geben Sie Ihre E-Mail-Adresse ein und wir. sendet Ihnen die Anweisungen zum Zurücksetzen Ihres Passworts',
+                  'Geben Sie Ihre E-Mail-Adresse ein und wir sendet Ihnen die Anweisungen zum Zurücksetzen Ihres Passworts',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
@@ -198,7 +198,7 @@ class _PasswortvergessenWidgetState extends State<PasswortvergessenWidget> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: const Text(
-                          'Email to reset password has been sent',
+                          'E-Mail zum Zurücksetzen des Passworts wurde gesendet',
                           style: TextStyle(
                             color: Colors.black,
                           ),
@@ -208,7 +208,7 @@ class _PasswortvergessenWidgetState extends State<PasswortvergessenWidget> {
                       ),
                     );
                   },
-                  text: 'Weitermachen',
+                  text: 'Senden',
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 45.0,

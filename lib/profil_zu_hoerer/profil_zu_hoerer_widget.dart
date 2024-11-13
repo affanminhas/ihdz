@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/footer_widget.dart';
+import '/components/listener_delete_dialog_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -156,11 +157,9 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                               Text(
                                 'Ihre Daten',
                                 style: FlutterFlowTheme.of(context)
-                                    .headlineMedium
+                                    .titleLarge
                                     .override(
                                       fontFamily: 'Inter Tight',
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -359,7 +358,7 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                             .secondaryBackground,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .labelMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             letterSpacing: 0.0,
@@ -450,10 +449,9 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                                   .secondaryBackground,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFFDBE2E7),
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
@@ -543,10 +541,9 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                                   .secondaryBackground,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFFDBE2E7),
                                               letterSpacing: 0.0,
                                             ),
                                         keyboardType: TextInputType.phone,
@@ -637,10 +634,9 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                                   .secondaryBackground,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFFDBE2E7),
                                               letterSpacing: 0.0,
                                             ),
                                         keyboardType: TextInputType.phone,
@@ -753,7 +749,7 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                         ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
+                                            .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
                                               letterSpacing: 0.0,
@@ -794,7 +790,7 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                             'Verified',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
+                                                .labelMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   letterSpacing: 0.0,
@@ -849,7 +845,7 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                             'Document verification pending',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
+                                                .labelMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   letterSpacing: 0.0,
@@ -1197,11 +1193,12 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                               'Back View',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium
+                                                      .labelMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        color: Colors.white,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
                                                       ),
                                             ),
                                           ),
@@ -1354,35 +1351,56 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 15.0, 0.0, 50.0),
-                          child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: 'Konto löschen',
-                            options: FFButtonOptions(
-                              width: 270.0,
-                              height: 50.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).error,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Inter Tight',
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
+                        Builder(
+                          builder: (context) => Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 15.0, 0.0, 50.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                await showDialog(
+                                  context: context,
+                                  builder: (dialogContext) {
+                                    return Dialog(
+                                      elevation: 0,
+                                      insetPadding: EdgeInsets.zero,
+                                      backgroundColor: Colors.transparent,
+                                      alignment: const AlignmentDirectional(0.0, 0.0)
+                                          .resolve(Directionality.of(context)),
+                                      child: SizedBox(
+                                        height: 250.0,
+                                        child: ListenerDeleteDialogWidget(
+                                          listenerRef:
+                                              profilZuHoererZuhoererRecord
+                                                  .reference,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              text: 'Konto löschen',
+                              options: FFButtonOptions(
+                                width: 270.0,
+                                height: 50.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).error,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Inter Tight',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: const BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
                         ),

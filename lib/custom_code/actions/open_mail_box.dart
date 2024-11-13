@@ -7,23 +7,17 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 
-Future<void> openEmailApp() async {
-  final Uri emailUri = Uri(
-    scheme: 'mailto',
-    path: 'ihdz.ichhoerdirzu@gmail.com',
-    queryParameters: {
-      'subject': 'Having Issue',
-      'body': 'Hi there',
-    },
+Future<void> openMailBox() async {
+  final Email email = Email(
+    body: 'Hi There',
+    subject: 'Issue',
+    recipients: ['ihdz.ichhoerdirzu@gmail.com'],
+    isHTML: false,
   );
 
-  if (await canLaunchUrl(emailUri)) {
-    await launchUrl(emailUri);
-  } else {
-    throw 'Could not open the email app';
-  }
+  await FlutterEmailSender.send(email);
 }
 
 // Set your action name, define your arguments and return parameter,

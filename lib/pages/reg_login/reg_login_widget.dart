@@ -180,9 +180,10 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                           isScrollable: true,
                                           labelColor:
                                               FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
+                                                  .primaryText,
                                           unselectedLabelColor:
-                                              const Color(0xFFB9B9BC),
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
                                           labelPadding: const EdgeInsets.all(16.0),
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
@@ -197,9 +198,9 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                   .displaySmall
                                                   .override(
                                                     fontFamily: 'Inter Tight',
+                                                    fontSize: 28.0,
                                                     letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
+                                                    fontWeight: FontWeight.w500,
                                                   ),
                                           indicatorColor:
                                               FlutterFlowTheme.of(context)
@@ -363,7 +364,7 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium
+                                                                .labelMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -515,7 +516,7 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium
+                                                                .labelMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Inter',
@@ -772,6 +773,24 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                       4.0),
                                                         ),
                                                       ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(70.0, 0.0,
+                                                                0.0, 20.0),
+                                                    child: Text(
+                                                      'oder Anmeldung mit',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelLarge
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
                                                     ),
                                                   ),
                                                   Align(
@@ -1759,19 +1778,15 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                               'Indem ich fortfahre, akzeptiere ich die AGB und die Datenschutzbestimmungen',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .titleLarge
+                                                                  .labelMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter Tight',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        14.0,
+                                                                        'Inter',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
                                                                   ),
                                                             ),
                                                             tileColor: FlutterFlowTheme
@@ -1881,6 +1896,29 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                               '',
                                                                         ));
 
+                                                                    await UsersRecord
+                                                                        .collection
+                                                                        .doc()
+                                                                        .set(
+                                                                            createUsersRecordData(
+                                                                          email: _model
+                                                                              .emailAddressCreateTextController
+                                                                              .text,
+                                                                          displayName: _model
+                                                                              .nameCreateTextController
+                                                                              .text,
+                                                                          photoUrl:
+                                                                              '',
+                                                                          uid:
+                                                                              '',
+                                                                          createdTime:
+                                                                              getCurrentTimestamp,
+                                                                          phoneNumber: _model
+                                                                              .mobileCreateTextController
+                                                                              .text,
+                                                                          shortDescription:
+                                                                              '',
+                                                                        ));
                                                                     FFAppState()
                                                                             .isListener =
                                                                         false;
@@ -1960,6 +1998,30 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                       .alternate,
                                                             ),
                                                           ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    60.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    20.0),
+                                                        child: Text(
+                                                          'oder Registrieren mit',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
                                                         ),
                                                       ),
                                                       Align(

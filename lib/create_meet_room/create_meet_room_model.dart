@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 class CreateMeetRoomModel extends FlutterFlowModel<CreateMeetRoomWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - generateRandomRoomId] action in CreateMeetRoom widget.
+  String? randomId;
   // State field(s) for roomName widget.
   FocusNode? roomNameFocusNode;
   TextEditingController? roomNameTextController;

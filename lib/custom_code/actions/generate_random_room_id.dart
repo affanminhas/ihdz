@@ -7,23 +7,14 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:url_launcher/url_launcher.dart';
+import 'dart:math';
 
-Future<void> openEmailApp() async {
-  final Uri emailUri = Uri(
-    scheme: 'mailto',
-    path: 'ihdz.ichhoerdirzu@gmail.com',
-    queryParameters: {
-      'subject': 'Having Issue',
-      'body': 'Hi there',
-    },
-  );
+String generateRandomRoomId() {
+  const String chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  Random random = Random();
 
-  if (await canLaunchUrl(emailUri)) {
-    await launchUrl(emailUri);
-  } else {
-    throw 'Could not open the email app';
-  }
+  return List.generate(10, (index) => chars[random.nextInt(chars.length)])
+      .join();
 }
 
 // Set your action name, define your arguments and return parameter,

@@ -203,10 +203,10 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                             isScrollable: true,
                                             labelColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .alternate,
+                                                    .primaryText,
                                             unselectedLabelColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryText,
+                                                    .secondary,
                                             labelPadding: const EdgeInsets.all(16.0),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
@@ -221,6 +221,7 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                     .displaySmall
                                                     .override(
                                                       fontFamily: 'Inter Tight',
+                                                      fontSize: 28.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
@@ -837,12 +838,14 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                           .center,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmall
+                                                                      .labelLarge
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter Tight',
+                                                                            'Inter',
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1004,7 +1007,7 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                           0.0,
                                                                           24.0),
                                                               child: Text(
-                                                                'bitte registriere dich an',
+                                                                'bitte registriere dich ',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmall
@@ -1704,7 +1707,7 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                             .center,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium
+                                                                        .labelMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Inter',
@@ -1744,7 +1747,7 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                 decoration:
                                                                     InputDecoration(
                                                                   labelText:
-                                                                      'Password',
+                                                                      'Passwort',
                                                                   labelStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .labelMedium
@@ -1895,7 +1898,7 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                 decoration:
                                                                     InputDecoration(
                                                                   labelText:
-                                                                      'Confirm Password',
+                                                                      'Passwort bestätigen',
                                                                   labelStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .labelMedium
@@ -2057,18 +2060,14 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                     'Indem ich fortfahre, akzeptiere ich die AGB und die Datenschutzbestimmungen',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleLarge
+                                                                        .labelMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Inter Tight',
+                                                                              'Inter',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          fontSize:
-                                                                              14.0,
+                                                                              FlutterFlowTheme.of(context).primaryText,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
                                                                         ),
                                                                   ),
                                                                   tileColor: FlutterFlowTheme.of(
@@ -2279,10 +2278,10 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                             .center,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .titleSmall
+                                                                        .labelLarge
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Inter Tight',
+                                                                              'Inter',
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),

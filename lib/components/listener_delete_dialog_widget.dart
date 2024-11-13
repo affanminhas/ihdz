@@ -199,6 +199,11 @@ class _ListenerDeleteDialogWidgetState
                                     await widget.listenerRef!.delete();
                                   }(),
                                 );
+                                unawaited(
+                                  () async {
+                                    await currentUserReference!.delete();
+                                  }(),
+                                );
 
                                 context.goNamedAuth(
                                     'AuthCheckView', context.mounted);

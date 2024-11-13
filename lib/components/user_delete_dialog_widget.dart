@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'user_delete_dialog_model.dart';
 export 'user_delete_dialog_model.dart';
@@ -191,16 +190,8 @@ class _UserDeleteDialogWidgetState extends State<UserDeleteDialogWidget> {
                         onPressed: !_model.checkboxValue!
                             ? null
                             : () async {
-                                unawaited(
-                                  () async {
-                                    await currentUserReference!.delete();
-                                  }(),
-                                );
-                                unawaited(
-                                  () async {
-                                    await widget.userRef!.delete();
-                                  }(),
-                                );
+                                await widget.userRef!.delete();
+                                await currentUserReference!.delete();
                                 await authManager.deleteUser(context);
 
                                 context.goNamedAuth(

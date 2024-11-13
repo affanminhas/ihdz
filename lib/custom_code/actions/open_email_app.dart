@@ -7,22 +7,20 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:mailto/mailto.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> openEmailApp() async {
-  final Uri emailUri = Uri(
-    scheme: 'mailto',
-    path: 'ihdz.ichhoerdirzu@gmail.com',
-    queryParameters: {
-      'subject': 'Having Issue',
-      'body': 'Hi there',
-    },
+  final mailtoLink = Mailto(
+    to: ['ihdz.ichhoerdirzu@gmail.com'],
+    subject: 'Having Issue',
+    body: 'I am having issue with the app can you guide me?',
   );
 
-  if (await canLaunchUrl(emailUri)) {
-    await launchUrl(emailUri);
-  } else {
-    throw 'Could not open the email app';
+  try {
+    await launch('$mailtoLink');
+  } catch (e) {
+    print('Can not launch email app');
   }
 }
 

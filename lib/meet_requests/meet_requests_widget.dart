@@ -77,7 +77,7 @@ class _MeetRequestsWidgetState extends State<MeetRequestsWidget> {
               iconTheme: const IconThemeData(color: Colors.white),
               automaticallyImplyLeading: true,
               title: Text(
-                'Erfüllen Sie Anfragen',
+                'Sie haben eine Anfrage',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: Colors.white,

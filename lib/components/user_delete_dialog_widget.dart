@@ -116,7 +116,7 @@ class _UserDeleteDialogWidgetState extends State<UserDeleteDialogWidget> {
                                       FlutterFlowTheme.of(context).alternate,
                                 ),
                                 child: Checkbox(
-                                  value: _model.checkboxValue ??= true,
+                                  value: _model.checkboxValue ??= false,
                                   onChanged: (newValue) async {
                                     safeSetState(
                                         () => _model.checkboxValue = newValue!);

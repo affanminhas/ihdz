@@ -13,8 +13,8 @@ import 'package:url_launcher/url_launcher.dart';
 Future<void> openEmailApp() async {
   final mailtoLink = Mailto(
     to: ['ihdz.ichhoerdirzu@gmail.com'],
-    subject: 'Having Issue',
-    body: 'I am having issue with the app can you guide me?',
+    subject: 'Regarding: ',
+    body: 'Ich brauche Unterstützung',
   );
 
   try {

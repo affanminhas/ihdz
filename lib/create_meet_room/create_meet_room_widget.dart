@@ -41,8 +41,12 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
       _model.randomId = actions.generateRandomRoomId();
       safeSetState(() {
         _model.roomNameTextController?.text = _model.randomId!;
-        _model.roomNameTextController?.selection = TextSelection.collapsed(
-            offset: _model.roomNameTextController!.text.length);
+        _model.roomNameFocusNode?.requestFocus();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _model.roomNameTextController?.selection = TextSelection.collapsed(
+            offset: _model.roomNameTextController!.text.length,
+          );
+        });
       });
     });
 

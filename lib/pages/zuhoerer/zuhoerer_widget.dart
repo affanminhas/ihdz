@@ -215,7 +215,11 @@ class _ZuhoererWidgetState extends State<ZuhoererWidget> {
                                                       BorderRadius.circular(
                                                           50.0),
                                                   child: Image.network(
-                                                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60',
+                                                    valueOrDefault<String>(
+                                                      listViewZuhoererRecord
+                                                          .photoUrl,
+                                                      'https://firebasestorage.googleapis.com/v0/b/ihdz-fbnv6x.appspot.com/o/user.png?alt=media&token=53d5edb0-0cb0-4514-a436-6bec266e52d0',
+                                                    ),
                                                     width: 44.0,
                                                     height: 44.0,
                                                     fit: BoxFit.cover,

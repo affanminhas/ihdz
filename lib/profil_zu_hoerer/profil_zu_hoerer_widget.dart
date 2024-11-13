@@ -981,7 +981,7 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                                     }
                                                   }
                                                 },
-                                                text: 'Upload Front',
+                                                text: 'Vorderseite hochladen',
                                                 options: FFButtonOptions(
                                                   width: double.infinity,
                                                   height: 40.0,
@@ -1101,7 +1101,7 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
                                                     }
                                                   }
                                                 },
-                                                text: 'Upload Back',
+                                                text: 'Zurück hochladen',
                                                 options: FFButtonOptions(
                                                   width: double.infinity,
                                                   height: 40.0,

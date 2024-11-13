@@ -591,8 +591,6 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                               FFAppState()
                                                                       .isListener =
                                                                   false;
-                                                              safeSetState(
-                                                                  () {});
 
                                                               context.pushNamedAuth(
                                                                   'Zuhoerer',
@@ -1919,11 +1917,6 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                           shortDescription:
                                                                               '',
                                                                         ));
-                                                                    FFAppState()
-                                                                            .isListener =
-                                                                        false;
-                                                                    safeSetState(
-                                                                        () {});
                                                                     await authManager
                                                                         .sendEmailVerification();
                                                                     ScaffoldMessenger.of(

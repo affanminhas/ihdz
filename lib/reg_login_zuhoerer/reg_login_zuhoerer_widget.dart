@@ -639,8 +639,6 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                     FFAppState()
                                                                             .isListener =
                                                                         true;
-                                                                    safeSetState(
-                                                                        () {});
 
                                                                     context.goNamedAuth(
                                                                         'ZuhoererStatuspage',

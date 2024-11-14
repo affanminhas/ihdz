@@ -8,10 +8,10 @@ class CreateMeetRoomModel extends FlutterFlowModel<CreateMeetRoomWidget> {
 
   // Stores action output result for [Custom Action - generateRandomRoomId] action in CreateMeetRoom widget.
   String? randomId;
-  // State field(s) for roomName widget.
-  FocusNode? roomNameFocusNode;
-  TextEditingController? roomNameTextController;
-  String? Function(BuildContext, String?)? roomNameTextControllerValidator;
+  // State field(s) for ListenerName widget.
+  FocusNode? listenerNameFocusNode;
+  TextEditingController? listenerNameTextController;
+  String? Function(BuildContext, String?)? listenerNameTextControllerValidator;
   // State field(s) for yourName widget.
   FocusNode? yourNameFocusNode;
   TextEditingController? yourNameTextController;
@@ -24,8 +24,8 @@ class CreateMeetRoomModel extends FlutterFlowModel<CreateMeetRoomWidget> {
 
   @override
   void dispose() {
-    roomNameFocusNode?.dispose();
-    roomNameTextController?.dispose();
+    listenerNameFocusNode?.dispose();
+    listenerNameTextController?.dispose();
 
     yourNameFocusNode?.dispose();
     yourNameTextController?.dispose();

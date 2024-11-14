@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -196,6 +197,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CreateMeetRoom',
           path: '/createMeetRoom',
+          asyncParams: {
+            'listener': getDoc(['Zuhoerer'], ZuhoererRecord.fromSnapshot),
+          },
           builder: (context, params) => CreateMeetRoomWidget(
             listnerRef: params.getParam(
               'listnerRef',
@@ -203,9 +207,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               isList: false,
               collectionNamePath: ['Zuhoerer'],
             ),
-            email: params.getParam(
-              'email',
-              ParamType.String,
+            listener: params.getParam(
+              'listener',
+              ParamType.Document,
             ),
           ),
         )

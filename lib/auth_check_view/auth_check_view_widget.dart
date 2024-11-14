@@ -29,8 +29,34 @@ class _AuthCheckViewWidgetState extends State<AuthCheckViewWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (FFAppState().isListener == true) {
         context.pushNamed('ZuhoererStatuspage');
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Going to zuhorer status',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: const Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
+          ),
+        );
       } else {
         context.goNamed('Zuhoerer');
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Going to zuhorer',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: const Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
+          ),
+        );
       }
     });
   }

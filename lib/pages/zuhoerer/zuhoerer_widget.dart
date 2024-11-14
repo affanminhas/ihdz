@@ -315,12 +315,15 @@ class _ZuhoererWidgetState extends State<ZuhoererWidget> {
                                                         .reference,
                                                     ParamType.DocumentReference,
                                                   ),
-                                                  'email': serializeParam(
-                                                    listViewZuhoererRecord
-                                                        .email,
-                                                    ParamType.String,
+                                                  'listener': serializeParam(
+                                                    listViewZuhoererRecord,
+                                                    ParamType.Document,
                                                   ),
                                                 }.withoutNulls,
+                                                extra: <String, dynamic>{
+                                                  'listener':
+                                                      listViewZuhoererRecord,
+                                                },
                                               );
                                             },
                                           ),

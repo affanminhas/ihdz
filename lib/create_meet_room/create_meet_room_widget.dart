@@ -16,11 +16,11 @@ class CreateMeetRoomWidget extends StatefulWidget {
   const CreateMeetRoomWidget({
     super.key,
     required this.listnerRef,
-    required this.email,
+    required this.listener,
   });
 
   final DocumentReference? listnerRef;
-  final String? email;
+  final ZuhoererRecord? listener;
 
   @override
   State<CreateMeetRoomWidget> createState() => _CreateMeetRoomWidgetState();
@@ -39,19 +39,11 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.randomId = actions.generateRandomRoomId();
-      safeSetState(() {
-        _model.roomNameTextController?.text = _model.randomId!;
-        _model.roomNameFocusNode?.requestFocus();
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _model.roomNameTextController?.selection = TextSelection.collapsed(
-            offset: _model.roomNameTextController!.text.length,
-          );
-        });
-      });
     });
 
-    _model.roomNameTextController ??= TextEditingController();
-    _model.roomNameFocusNode ??= FocusNode();
+    _model.listenerNameTextController ??=
+        TextEditingController(text: widget.listener?.displayName);
+    _model.listenerNameFocusNode ??= FocusNode();
 
     _model.yourNameFocusNode ??= FocusNode();
   }
@@ -111,7 +103,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
               iconTheme: const IconThemeData(color: Colors.white),
               automaticallyImplyLeading: true,
               title: Text(
-                'Raum schaffen',
+                'Video Anruf',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       color: Colors.white,
@@ -133,7 +125,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Raum-ID',
+                      'Zuhörer',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
                             color: Colors.white,
@@ -148,10 +140,10 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                       child: SizedBox(
                         width: double.infinity,
                         child: TextFormField(
-                          controller: _model.roomNameTextController,
-                          focusNode: _model.roomNameFocusNode,
+                          controller: _model.listenerNameTextController,
+                          focusNode: _model.listenerNameFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
-                            '_model.roomNameTextController',
+                            '_model.listenerNameTextController',
                             const Duration(milliseconds: 100),
                             () => safeSetState(() {}),
                           ),
@@ -166,7 +158,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Geben Sie den Raumnamen ein',
+                            hintText: 'Hörername',
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -207,7 +199,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                                   ),
                           keyboardType: TextInputType.emailAddress,
                           cursorColor: FlutterFlowTheme.of(context).secondary,
-                          validator: _model.roomNameTextControllerValidator
+                          validator: _model.listenerNameTextControllerValidator
                               .asValidator(context),
                         ),
                       ),
@@ -305,7 +297,8 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: ((_model.roomNameTextController.text ==
+                          onPressed: ((_model.listenerNameTextController
+                                                  .text ==
                                               '') ||
                                       (_model.yourNameTextController.text ==
                                               '')
@@ -335,8 +328,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                                         requestedBy: createMeetRoomUsersRecord
                                             ?.reference,
                                         createdAt: getCurrentTimestamp,
-                                        roomId:
-                                            _model.roomNameTextController.text,
+                                        roomId: _model.randomId,
                                         requestedTo: widget.listnerRef,
                                       ));
                                   _model.pushNotifUser =
@@ -345,7 +337,7 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                                         (pushNotificationUsersRecord) =>
                                             pushNotificationUsersRecord.where(
                                       'email',
-                                      isEqualTo: widget.email,
+                                      isEqualTo: widget.listener?.email,
                                     ),
                                     singleRecord: true,
                                   ).then((s) => s.firstOrNull);
@@ -361,13 +353,13 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
                                     parameterData: {},
                                   );
                                   await actions.launchJitsi(
-                                    _model.roomNameTextController.text,
+                                    _model.randomId!,
                                     _model.yourNameTextController.text,
                                   );
 
                                   safeSetState(() {});
                                 },
-                          text: 'Treten Sie dem Raum bei',
+                          text: 'Video Anruf starten',
                           options: FFButtonOptions(
                             width: 200.0,
                             height: 45.0,

@@ -192,12 +192,11 @@ class _ListenerDeleteDialogWidgetState
                         onPressed: !_model.checkboxValue!
                             ? null
                             : () async {
+                                context.goNamed('HomePage');
+
                                 await widget.listenerRef!.delete();
                                 await currentUserReference!.delete();
                                 await authManager.deleteUser(context);
-
-                                context.goNamedAuth(
-                                    'AuthCheckView', context.mounted);
                               },
                         text: 'Löschen',
                         options: FFButtonOptions(

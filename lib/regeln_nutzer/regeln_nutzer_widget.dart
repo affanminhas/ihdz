@@ -76,7 +76,7 @@ class _RegelnNutzerWidgetState extends State<RegelnNutzerWidget> {
                           EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: FlutterFlowVideoPlayer(
                         path:
-                            'https://firebasestorage.googleapis.com/v0/b/ihdz-fbnv6x.appspot.com/o/IHDZ%20Regeln%20Nutzer.m4v?alt=media&token=ac1caaf3-f3fd-4d88-9aa6-2cb182e63b8e',
+                            'https://firebasestorage.googleapis.com/v0/b/ihdz-fbnv6x.appspot.com/o/IHDZ_Regeln_Nutzer_NEW.mp4?alt=media&token=ddc9be59-443d-4f34-a8b2-613d570dcbba',
                         videoType: VideoType.network,
                         autoPlay: false,
                         looping: true,

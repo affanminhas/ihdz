@@ -592,7 +592,7 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                       .isListener =
                                                                   false;
 
-                                                              context.pushNamedAuth(
+                                                              context.goNamedAuth(
                                                                   'Zuhoerer',
                                                                   context
                                                                       .mounted);

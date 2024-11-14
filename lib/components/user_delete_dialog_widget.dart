@@ -190,12 +190,11 @@ class _UserDeleteDialogWidgetState extends State<UserDeleteDialogWidget> {
                         onPressed: !_model.checkboxValue!
                             ? null
                             : () async {
+                                context.goNamed('HomePage');
+
                                 await widget.userRef!.delete();
                                 await currentUserReference!.delete();
                                 await authManager.deleteUser(context);
-
-                                context.goNamedAuth(
-                                    'AuthCheckView', context.mounted);
                               },
                         text: 'Löschen',
                         options: FFButtonOptions(

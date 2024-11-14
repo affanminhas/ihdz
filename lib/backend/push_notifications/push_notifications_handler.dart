@@ -131,7 +131,8 @@ final parametersBuilderMap =
   'CreateMeetRoom': (data) async => ParameterData(
         allParams: {
           'listnerRef': getParameter<DocumentReference>(data, 'listnerRef'),
-          'email': getParameter<String>(data, 'email'),
+          'listener': await getDocumentParameter<ZuhoererRecord>(
+              data, 'listener', ZuhoererRecord.fromSnapshot),
         },
       ),
 };

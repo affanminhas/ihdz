@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -27,36 +29,17 @@ class _AuthCheckViewWidgetState extends State<AuthCheckViewWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (FFAppState().isListener == true) {
-        context.pushNamed('ZuhoererStatuspage');
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Going to zuhorer status',
-              style: TextStyle(
-                color: FlutterFlowTheme.of(context).primaryText,
-              ),
-            ),
-            duration: const Duration(milliseconds: 4000),
-            backgroundColor: FlutterFlowTheme.of(context).secondary,
-          ),
-        );
+      await authManager.refreshUser();
+      _model.userCollection = await queryUsersRecordCount(
+        queryBuilder: (usersRecord) => usersRecord.where(
+          'email',
+          isEqualTo: currentUserEmail,
+        ),
+      );
+      if ((_model.userCollection! > 0) && currentUserEmailVerified) {
+        context.pushNamed('Zuhoerer');
       } else {
-        context.goNamed('Zuhoerer');
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Going to zuhorer',
-              style: TextStyle(
-                color: FlutterFlowTheme.of(context).primaryText,
-              ),
-            ),
-            duration: const Duration(milliseconds: 4000),
-            backgroundColor: FlutterFlowTheme.of(context).secondary,
-          ),
-        );
+        context.pushNamed('ZuhoererStatuspage');
       }
     });
   }

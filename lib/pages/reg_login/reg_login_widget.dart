@@ -805,6 +805,10 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                   16.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          await authManager
+                                                              .refreshUser();
+                                                          var shouldSetState =
+                                                              false;
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
                                                           final user =
@@ -814,14 +818,145 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                           if (user == null) {
                                                             return;
                                                           }
-                                                          FFAppState()
-                                                                  .isListener =
-                                                              false;
-                                                          safeSetState(() {});
+                                                          _model.checkUserVal =
+                                                              await queryUsersRecordCount(
+                                                            queryBuilder:
+                                                                (usersRecord) =>
+                                                                    usersRecord
+                                                                        .where(
+                                                              'email',
+                                                              isEqualTo:
+                                                                  currentUserEmail,
+                                                            ),
+                                                          );
+                                                          shouldSetState =
+                                                              true;
+                                                          if (_model
+                                                                  .checkUserVal! >
+                                                              0) {
+                                                            if (currentUserEmailVerified) {
+                                                              FFAppState()
+                                                                      .isListener =
+                                                                  false;
 
-                                                          context.pushNamedAuth(
-                                                              'Zuhoerer',
-                                                              context.mounted);
+                                                              context.goNamedAuth(
+                                                                  'Zuhoerer',
+                                                                  context
+                                                                      .mounted);
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: const Text(
+                                                                    'Bitte überprüfen Sie Ihre E-Mail-Adresse.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                    ),
+                                                                  ),
+                                                                  duration: const Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .prepareAuthEvent();
+                                                              await authManager
+                                                                  .signOut();
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .clearRedirectLocation();
+                                                            }
+
+                                                            if (shouldSetState) {
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+                                                            return;
+                                                          } else {
+                                                            _model.checkListener =
+                                                                await queryZuhoererRecordCount(
+                                                              queryBuilder:
+                                                                  (zuhoererRecord) =>
+                                                                      zuhoererRecord
+                                                                          .where(
+                                                                'email',
+                                                                isEqualTo:
+                                                                    currentUserEmail,
+                                                              ),
+                                                            );
+                                                            shouldSetState =
+                                                                true;
+                                                            if (_model
+                                                                    .checkListener! >
+                                                                0) {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: const Text(
+                                                                    'Benutzer existiert nicht.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                    ),
+                                                                  ),
+                                                                  duration: const Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .prepareAuthEvent();
+                                                              await authManager
+                                                                  .signOut();
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .clearRedirectLocation();
+
+                                                              if (shouldSetState) {
+                                                                safeSetState(
+                                                                    () {});
+                                                              }
+                                                              return;
+                                                            } else {
+                                                              await UsersRecord
+                                                                  .collection
+                                                                  .doc()
+                                                                  .set(
+                                                                      createUsersRecordData(
+                                                                    email:
+                                                                        currentUserEmail,
+                                                                  ));
+                                                              await authManager
+                                                                  .sendEmailVerification();
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .prepareAuthEvent();
+                                                              await authManager
+                                                                  .signOut();
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .clearRedirectLocation();
+                                                            }
+                                                          }
+
+                                                          if (shouldSetState) {
+                                                            safeSetState(() {});
+                                                          }
                                                         },
                                                         text:
                                                             'Weiter mit Google',
@@ -1989,132 +2124,6 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .alternate,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    60.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    20.0),
-                                                        child: Text(
-                                                          'oder Registrieren mit',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelLarge
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      16.0),
-                                                          child: FFButtonWidget(
-                                                            onPressed: !_model
-                                                                    .checkboxListTileValue!
-                                                                ? null
-                                                                : () async {
-                                                                    GoRouter.of(
-                                                                            context)
-                                                                        .prepareAuthEvent();
-                                                                    final user =
-                                                                        await authManager
-                                                                            .signInWithGoogle(context);
-                                                                    if (user ==
-                                                                        null) {
-                                                                      return;
-                                                                    }
-                                                                    FFAppState()
-                                                                            .isListener =
-                                                                        false;
-                                                                    safeSetState(
-                                                                        () {});
-
-                                                                    context.goNamedAuth(
-                                                                        'Zuhoerer',
-                                                                        context
-                                                                            .mounted);
-                                                                  },
-                                                            text:
-                                                                'Weiter mit Google',
-                                                            icon: const FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .google,
-                                                              size: 20.0,
-                                                            ),
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: 230.0,
-                                                              height: 44.0,
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Inter',
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                      ),
-                                                              elevation: 0.0,
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                width: 2.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          4.0),
-                                                              disabledColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                              hoverColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
                                                             ),
                                                           ),
                                                         ),

@@ -891,6 +891,10 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                           FFButtonWidget(
                                                                         onPressed:
                                                                             () async {
+                                                                          await authManager
+                                                                              .refreshUser();
+                                                                          var shouldSetState =
+                                                                              false;
                                                                           GoRouter.of(context)
                                                                               .prepareAuthEvent();
                                                                           final user =
@@ -899,14 +903,103 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                               null) {
                                                                             return;
                                                                           }
-                                                                          FFAppState().isListener =
+                                                                          _model.checkUserVal =
+                                                                              await queryZuhoererRecordCount(
+                                                                            queryBuilder: (zuhoererRecord) =>
+                                                                                zuhoererRecord.where(
+                                                                              'email',
+                                                                              isEqualTo: currentUserEmail,
+                                                                            ),
+                                                                          );
+                                                                          shouldSetState =
                                                                               true;
-                                                                          safeSetState(
-                                                                              () {});
+                                                                          if (_model.checkUserVal! >
+                                                                              0) {
+                                                                            if (currentUserEmailVerified) {
+                                                                              FFAppState().isListener = true;
 
-                                                                          context.goNamedAuth(
-                                                                              'ZuhoererStatuspage',
-                                                                              context.mounted);
+                                                                              context.goNamedAuth('ZuhoererStatuspage', context.mounted);
+                                                                            } else {
+                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                SnackBar(
+                                                                                  content: const Text(
+                                                                                    'Bitte überprüfen Sie Ihre E-Mail-Adresse.',
+                                                                                    style: TextStyle(
+                                                                                      color: Colors.black,
+                                                                                    ),
+                                                                                  ),
+                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                ),
+                                                                              );
+                                                                              GoRouter.of(context).prepareAuthEvent();
+                                                                              await authManager.signOut();
+                                                                              GoRouter.of(context).clearRedirectLocation();
+                                                                            }
+                                                                          } else {
+                                                                            _model.checkUserV =
+                                                                                await queryUsersRecordCount(
+                                                                              queryBuilder: (usersRecord) => usersRecord.where(
+                                                                                'email',
+                                                                                isEqualTo: currentUserEmail,
+                                                                              ),
+                                                                            );
+                                                                            shouldSetState =
+                                                                                true;
+                                                                            if (_model.checkUserV! >
+                                                                                0) {
+                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                SnackBar(
+                                                                                  content: const Text(
+                                                                                    'Listner existiert nicht.',
+                                                                                    style: TextStyle(
+                                                                                      color: Colors.black,
+                                                                                    ),
+                                                                                  ),
+                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                ),
+                                                                              );
+                                                                              GoRouter.of(context).prepareAuthEvent();
+                                                                              await authManager.signOut();
+                                                                              GoRouter.of(context).clearRedirectLocation();
+                                                                            } else {
+                                                                              await ZuhoererRecord.collection.doc().set(createZuhoererRecordData(
+                                                                                    email: _model.emailAddressCreateTextController.text,
+                                                                                    createdTime: getCurrentTimestamp,
+                                                                                    active: false,
+                                                                                    uid: currentUserUid,
+                                                                                    isVerified: false,
+                                                                                    idFront: '',
+                                                                                    idBack: '',
+                                                                                  ));
+                                                                              await authManager.sendEmailVerification();
+                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                SnackBar(
+                                                                                  content: const Text(
+                                                                                    'Der Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet. Bitte überprüfen Sie und melden Sie sich an.',
+                                                                                    style: TextStyle(
+                                                                                      color: Colors.black,
+                                                                                    ),
+                                                                                  ),
+                                                                                  duration: const Duration(milliseconds: 4000),
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                ),
+                                                                              );
+                                                                              GoRouter.of(context).prepareAuthEvent();
+                                                                              await authManager.signOut();
+                                                                              GoRouter.of(context).clearRedirectLocation();
+                                                                            }
+
+                                                                            if (shouldSetState) {
+                                                                              safeSetState(() {});
+                                                                            }
+                                                                            return;
+                                                                          }
+
+                                                                          if (shouldSetState) {
+                                                                            safeSetState(() {});
+                                                                          }
                                                                         },
                                                                         text:
                                                                             'Weiter mitGoogle',
@@ -2251,148 +2344,6 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          24.0),
-                                                                  child: Text(
-                                                                    'oder Registrierung mit',
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          16.0),
-                                                                  child: Wrap(
-                                                                    spacing:
-                                                                        16.0,
-                                                                    runSpacing:
-                                                                        0.0,
-                                                                    alignment:
-                                                                        WrapAlignment
-                                                                            .center,
-                                                                    crossAxisAlignment:
-                                                                        WrapCrossAlignment
-                                                                            .center,
-                                                                    direction: Axis
-                                                                        .horizontal,
-                                                                    runAlignment:
-                                                                        WrapAlignment
-                                                                            .center,
-                                                                    verticalDirection:
-                                                                        VerticalDirection
-                                                                            .down,
-                                                                    clipBehavior:
-                                                                        Clip.none,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            16.0),
-                                                                        child:
-                                                                            FFButtonWidget(
-                                                                          onPressed: !_model.checkboxListTileValue!
-                                                                              ? null
-                                                                              : () async {
-                                                                                  GoRouter.of(context).prepareAuthEvent();
-                                                                                  final user = await authManager.signInWithGoogle(context);
-                                                                                  if (user == null) {
-                                                                                    return;
-                                                                                  }
-                                                                                  FFAppState().isListener = true;
-                                                                                  safeSetState(() {});
-
-                                                                                  context.goNamedAuth('ZuhoererStatuspage', context.mounted);
-                                                                                },
-                                                                          text:
-                                                                              'Weiter mit Google',
-                                                                          icon:
-                                                                              const FaIcon(
-                                                                            FontAwesomeIcons.google,
-                                                                            size:
-                                                                                20.0,
-                                                                          ),
-                                                                          options:
-                                                                              FFButtonOptions(
-                                                                            width:
-                                                                                230.0,
-                                                                            height:
-                                                                                44.0,
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Inter',
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                ),
-                                                                            elevation:
-                                                                                0.0,
-                                                                            borderSide:
-                                                                                BorderSide(
-                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              width: 2.0,
-                                                                            ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(4.0),
-                                                                            disabledColor:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            hoverColor:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
                                                           ),
                                                         ],
                                                       ),

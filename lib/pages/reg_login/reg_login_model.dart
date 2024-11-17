@@ -25,6 +25,10 @@ class RegLoginModel extends FlutterFlowModel<RegLoginWidget> {
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   int? checkUser;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  int? checkUserVal;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  int? checkListener;
   // State field(s) for name_Create widget.
   FocusNode? nameCreateFocusNode;
   TextEditingController? nameCreateTextController;

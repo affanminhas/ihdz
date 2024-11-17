@@ -47,6 +47,10 @@ class RegLoginZuhoererModel extends FlutterFlowModel<RegLoginZuhoererWidget> {
 
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   int? checkUser;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  int? checkUserVal;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  int? checkUserV;
   // State field(s) for VornameundName widget.
   FocusNode? vornameundNameFocusNode;
   TextEditingController? vornameundNameTextController;

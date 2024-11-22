@@ -1,0 +1,3 @@
+-keep class org.jitsi.** { *; }
+-keep class com.oney.WebRTCModule.** { *; }
+-keep class org.webrtc.** { *; }

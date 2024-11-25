@@ -34,6 +34,8 @@ class _ProfilUserWidgetState extends State<ProfilUserWidget> {
     _model.textFieldFocusNode2 ??= FocusNode();
 
     _model.textFieldFocusNode3 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

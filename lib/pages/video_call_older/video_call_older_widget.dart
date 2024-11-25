@@ -21,6 +21,8 @@ class _VideoCallOlderWidgetState extends State<VideoCallOlderWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VideoCallOlderModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

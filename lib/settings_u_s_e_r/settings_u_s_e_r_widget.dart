@@ -22,6 +22,8 @@ class _SettingsUSERWidgetState extends State<SettingsUSERWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SettingsUSERModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

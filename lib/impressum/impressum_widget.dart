@@ -21,6 +21,8 @@ class _ImpressumWidgetState extends State<ImpressumWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ImpressumModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

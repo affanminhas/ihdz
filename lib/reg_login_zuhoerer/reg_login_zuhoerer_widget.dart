@@ -116,6 +116,8 @@ class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

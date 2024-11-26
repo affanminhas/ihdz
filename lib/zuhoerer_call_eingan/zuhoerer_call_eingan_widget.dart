@@ -21,6 +21,8 @@ class _ZuhoererCallEinganWidgetState extends State<ZuhoererCallEinganWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ZuhoererCallEinganModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

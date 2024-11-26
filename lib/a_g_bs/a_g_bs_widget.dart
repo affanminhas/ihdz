@@ -21,6 +21,8 @@ class _AGBsWidgetState extends State<AGBsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AGBsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

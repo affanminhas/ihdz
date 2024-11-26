@@ -24,6 +24,8 @@ class _MeetRequestsWidgetState extends State<MeetRequestsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MeetRequestsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

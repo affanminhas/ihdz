@@ -42,6 +42,8 @@ class _AuthCheckViewWidgetState extends State<AuthCheckViewWidget> {
         context.pushNamed('ZuhoererStatuspage');
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

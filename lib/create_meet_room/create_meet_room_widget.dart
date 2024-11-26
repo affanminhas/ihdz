@@ -46,6 +46,8 @@ class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
     _model.listenerNameFocusNode ??= FocusNode();
 
     _model.yourNameFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

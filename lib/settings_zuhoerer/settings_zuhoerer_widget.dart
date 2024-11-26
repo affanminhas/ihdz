@@ -22,6 +22,8 @@ class _SettingsZuhoererWidgetState extends State<SettingsZuhoererWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SettingsZuhoererModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

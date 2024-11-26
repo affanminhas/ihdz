@@ -20,6 +20,8 @@ class _WebViewTEST2WidgetState extends State<WebViewTEST2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WebViewTEST2Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

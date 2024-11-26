@@ -21,6 +21,8 @@ class _BedienungsanleitungWidgetState extends State<BedienungsanleitungWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BedienungsanleitungModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

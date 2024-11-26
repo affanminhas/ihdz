@@ -113,6 +113,8 @@ class _RegLoginWidgetState extends State<RegLoginWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

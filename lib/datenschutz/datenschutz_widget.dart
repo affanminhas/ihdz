@@ -21,6 +21,8 @@ class _DatenschutzWidgetState extends State<DatenschutzWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DatenschutzModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

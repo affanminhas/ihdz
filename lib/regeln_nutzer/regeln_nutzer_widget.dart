@@ -21,6 +21,8 @@ class _RegelnNutzerWidgetState extends State<RegelnNutzerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RegelnNutzerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

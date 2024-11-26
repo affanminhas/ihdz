@@ -33,6 +33,8 @@ class _ListenerDeleteDialogWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ListenerDeleteDialogModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

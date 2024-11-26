@@ -27,6 +27,8 @@ class _PasswortvergessenWidgetState extends State<PasswortvergessenWidget> {
 
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

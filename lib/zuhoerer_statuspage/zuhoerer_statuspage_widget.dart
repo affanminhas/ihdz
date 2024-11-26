@@ -27,6 +27,8 @@ class _ZuhoererStatuspageWidgetState extends State<ZuhoererStatuspageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ZuhoererStatuspageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

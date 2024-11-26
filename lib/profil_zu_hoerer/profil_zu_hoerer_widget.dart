@@ -37,6 +37,8 @@ class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
     _model.textFieldFocusNode3 ??= FocusNode();
 
     _model.textFieldFocusNode4 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

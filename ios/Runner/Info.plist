@@ -6,6 +6,12 @@
     <array>
       <string>com.mycompany.ihdz.bgTask</string>
     </array>
+    <key>NSCalendarsUsageDescription</key>
+    <string>This app requires access to your calendar for scheduling events and reminders.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app requires microphone access to record audio for voice messages.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app requires location access to show events near you.</string>
 
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

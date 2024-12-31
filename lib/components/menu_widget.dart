@@ -12,10 +12,10 @@ class MenuWidget extends StatefulWidget {
   const MenuWidget({super.key});
 
   @override
-  State<MenuWidget> createState() => _MenuWidgetState();
+  State<MenuWidget> createState() => _MenuMaterialState();
 }
 
-class _MenuWidgetState extends State<MenuWidget> {
+class _MenuMaterialState extends State<MenuWidget> {
   late MenuModel _model;
 
   @override

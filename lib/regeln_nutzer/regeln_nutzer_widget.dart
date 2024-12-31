@@ -9,10 +9,10 @@ class RegelnNutzerWidget extends StatefulWidget {
   const RegelnNutzerWidget({super.key});
 
   @override
-  State<RegelnNutzerWidget> createState() => _RegelnNutzerWidgetState();
+  State<RegelnNutzerWidget> createState() => _RegelnNutzerMaterialState();
 }
 
-class _RegelnNutzerWidgetState extends State<RegelnNutzerWidget> {
+class _RegelnNutzerMaterialState extends State<RegelnNutzerWidget> {
   late RegelnNutzerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

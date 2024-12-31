@@ -9,10 +9,10 @@ class AGBsWidget extends StatefulWidget {
   const AGBsWidget({super.key});
 
   @override
-  State<AGBsWidget> createState() => _AGBsWidgetState();
+  State<AGBsWidget> createState() => _AGBsMaterialState();
 }
 
-class _AGBsWidgetState extends State<AGBsWidget> {
+class _AGBsMaterialState extends State<AGBsWidget> {
   late AGBsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

@@ -14,10 +14,10 @@ class AuthCheckViewWidget extends StatefulWidget {
   const AuthCheckViewWidget({super.key});
 
   @override
-  State<AuthCheckViewWidget> createState() => _AuthCheckViewWidgetState();
+  State<AuthCheckViewWidget> createState() => _AuthCheckViewMaterialState();
 }
 
-class _AuthCheckViewWidgetState extends State<AuthCheckViewWidget> {
+class _AuthCheckViewMaterialState extends State<AuthCheckViewWidget> {
   late AuthCheckViewModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

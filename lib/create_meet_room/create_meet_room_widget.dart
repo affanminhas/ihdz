@@ -23,10 +23,10 @@ class CreateMeetRoomWidget extends StatefulWidget {
   final ZuhoererRecord? listener;
 
   @override
-  State<CreateMeetRoomWidget> createState() => _CreateMeetRoomWidgetState();
+  State<CreateMeetRoomWidget> createState() => _CreateMeetRoomMaterialState();
 }
 
-class _CreateMeetRoomWidgetState extends State<CreateMeetRoomWidget> {
+class _CreateMeetRoomMaterialState extends State<CreateMeetRoomWidget> {
   late CreateMeetRoomModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

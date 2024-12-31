@@ -12,10 +12,10 @@ class MeetRequestsWidget extends StatefulWidget {
   const MeetRequestsWidget({super.key});
 
   @override
-  State<MeetRequestsWidget> createState() => _MeetRequestsWidgetState();
+  State<MeetRequestsWidget> createState() => _MeetRequestsMaterialState();
 }
 
-class _MeetRequestsWidgetState extends State<MeetRequestsWidget> {
+class _MeetRequestsMaterialState extends State<MeetRequestsWidget> {
   late MeetRequestsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

@@ -16,10 +16,10 @@ class ListenerDeleteDialogWidget extends StatefulWidget {
 
   @override
   State<ListenerDeleteDialogWidget> createState() =>
-      _ListenerDeleteDialogWidgetState();
+      _ListenerDeleteDialogMaterialState();
 }
 
-class _ListenerDeleteDialogWidgetState
+class _ListenerDeleteDialogMaterialState
     extends State<ListenerDeleteDialogWidget> {
   late ListenerDeleteDialogModel _model;
 

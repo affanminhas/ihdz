@@ -9,10 +9,10 @@ class VideoCalWidget extends StatefulWidget {
   const VideoCalWidget({super.key});
 
   @override
-  State<VideoCalWidget> createState() => _VideoCalWidgetState();
+  State<VideoCalWidget> createState() => _VideoCalMaterialState();
 }
 
-class _VideoCalWidgetState extends State<VideoCalWidget> {
+class _VideoCalMaterialState extends State<VideoCalWidget> {
   late VideoCalModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

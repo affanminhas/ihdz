@@ -9,10 +9,10 @@ class ZuhoererCallEinganWidget extends StatefulWidget {
 
   @override
   State<ZuhoererCallEinganWidget> createState() =>
-      _ZuhoererCallEinganWidgetState();
+      _ZuhoererCallEinganMaterialState();
 }
 
-class _ZuhoererCallEinganWidgetState extends State<ZuhoererCallEinganWidget> {
+class _ZuhoererCallEinganMaterialState extends State<ZuhoererCallEinganWidget> {
   late ZuhoererCallEinganModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

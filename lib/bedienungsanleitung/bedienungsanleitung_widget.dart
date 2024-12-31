@@ -9,10 +9,10 @@ class BedienungsanleitungWidget extends StatefulWidget {
 
   @override
   State<BedienungsanleitungWidget> createState() =>
-      _BedienungsanleitungWidgetState();
+      _BedienungsanleitungMaterialState();
 }
 
-class _BedienungsanleitungWidgetState extends State<BedienungsanleitungWidget> {
+class _BedienungsanleitungMaterialState extends State<BedienungsanleitungWidget> {
   late BedienungsanleitungModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

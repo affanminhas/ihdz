@@ -11,10 +11,10 @@ class HomePageWidget extends StatefulWidget {
   const HomePageWidget({super.key});
 
   @override
-  State<HomePageWidget> createState() => _HomePageWidgetState();
+  State<HomePageWidget> createState() => _HomePageMaterialState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomePageMaterialState extends State<HomePageWidget> {
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

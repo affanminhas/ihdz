@@ -8,10 +8,10 @@ class WebViewTEST2Widget extends StatefulWidget {
   const WebViewTEST2Widget({super.key});
 
   @override
-  State<WebViewTEST2Widget> createState() => _WebViewTEST2WidgetState();
+  State<WebViewTEST2Widget> createState() => _WebViewTEST2MaterialState();
 }
 
-class _WebViewTEST2WidgetState extends State<WebViewTEST2Widget> {
+class _WebViewTEST2MaterialState extends State<WebViewTEST2Widget> {
   late WebViewTEST2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

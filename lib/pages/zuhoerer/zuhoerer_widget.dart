@@ -16,10 +16,10 @@ class ZuhoererWidget extends StatefulWidget {
   const ZuhoererWidget({super.key});
 
   @override
-  State<ZuhoererWidget> createState() => _ZuhoererWidgetState();
+  State<ZuhoererWidget> createState() => _ZuhoererMaterialState();
 }
 
-class _ZuhoererWidgetState extends State<ZuhoererWidget> {
+class _ZuhoererMaterialState extends State<ZuhoererWidget> {
   late ZuhoererModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

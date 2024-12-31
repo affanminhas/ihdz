@@ -10,10 +10,10 @@ class SettingsUSERWidget extends StatefulWidget {
   const SettingsUSERWidget({super.key});
 
   @override
-  State<SettingsUSERWidget> createState() => _SettingsUSERWidgetState();
+  State<SettingsUSERWidget> createState() => _SettingsUSERMaterialState();
 }
 
-class _SettingsUSERWidgetState extends State<SettingsUSERWidget> {
+class _SettingsUSERMaterialState extends State<SettingsUSERWidget> {
   late SettingsUSERModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

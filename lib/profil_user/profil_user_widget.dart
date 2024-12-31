@@ -16,10 +16,10 @@ class ProfilUserWidget extends StatefulWidget {
   const ProfilUserWidget({super.key});
 
   @override
-  State<ProfilUserWidget> createState() => _ProfilUserWidgetState();
+  State<ProfilUserWidget> createState() => _ProfilUserMaterialState();
 }
 
-class _ProfilUserWidgetState extends State<ProfilUserWidget> {
+class _ProfilUserMaterialState extends State<ProfilUserWidget> {
   late ProfilUserModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

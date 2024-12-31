@@ -9,10 +9,10 @@ class ImpressumWidget extends StatefulWidget {
   const ImpressumWidget({super.key});
 
   @override
-  State<ImpressumWidget> createState() => _ImpressumWidgetState();
+  State<ImpressumWidget> createState() => _ImpressumMaterialState();
 }
 
-class _ImpressumWidgetState extends State<ImpressumWidget> {
+class _ImpressumMaterialState extends State<ImpressumWidget> {
   late ImpressumModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

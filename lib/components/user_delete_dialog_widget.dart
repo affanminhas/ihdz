@@ -15,10 +15,10 @@ class UserDeleteDialogWidget extends StatefulWidget {
   final DocumentReference? userRef;
 
   @override
-  State<UserDeleteDialogWidget> createState() => _UserDeleteDialogWidgetState();
+  State<UserDeleteDialogWidget> createState() => _UserDeleteDialogMaterialState();
 }
 
-class _UserDeleteDialogWidgetState extends State<UserDeleteDialogWidget> {
+class _UserDeleteDialogMaterialState extends State<UserDeleteDialogWidget> {
   late UserDeleteDialogModel _model;
 
   @override

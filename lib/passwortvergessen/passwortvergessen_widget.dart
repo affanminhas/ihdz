@@ -12,10 +12,10 @@ class PasswortvergessenWidget extends StatefulWidget {
 
   @override
   State<PasswortvergessenWidget> createState() =>
-      _PasswortvergessenWidgetState();
+      _PasswortvergessenMaterialState();
 }
 
-class _PasswortvergessenWidgetState extends State<PasswortvergessenWidget> {
+class _PasswortvergessenMaterialState extends State<PasswortvergessenWidget> {
   late PasswortvergessenModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

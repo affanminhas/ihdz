@@ -17,10 +17,10 @@ class RegLoginWidget extends StatefulWidget {
   const RegLoginWidget({super.key});
 
   @override
-  State<RegLoginWidget> createState() => _RegLoginWidgetState();
+  State<RegLoginWidget> createState() => _RegLoginMaterialState();
 }
 
-class _RegLoginWidgetState extends State<RegLoginWidget>
+class _RegLoginMaterialState extends State<RegLoginWidget>
     with TickerProviderStateMixin {
   late RegLoginModel _model;
 

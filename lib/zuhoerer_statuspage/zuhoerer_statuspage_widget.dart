@@ -1,3 +1,5 @@
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/footer_widget.dart';
@@ -15,10 +17,10 @@ class ZuhoererStatuspageWidget extends StatefulWidget {
 
   @override
   State<ZuhoererStatuspageWidget> createState() =>
-      _ZuhoererStatuspageWidgetState();
+      _ZuhoererStatuspageMaterialState();
 }
 
-class _ZuhoererStatuspageWidgetState extends State<ZuhoererStatuspageWidget> {
+class _ZuhoererStatuspageMaterialState extends State<ZuhoererStatuspageWidget> {
   late ZuhoererStatuspageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -223,7 +225,7 @@ class _ZuhoererStatuspageWidgetState extends State<ZuhoererStatuspageWidget> {
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
-                                          iconAlignment: IconAlignment.end,
+                                          //iconAlignment: IconAlignment.end,
                                           iconPadding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),

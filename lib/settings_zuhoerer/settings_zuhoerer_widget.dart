@@ -10,10 +10,10 @@ class SettingsZuhoererWidget extends StatefulWidget {
   const SettingsZuhoererWidget({super.key});
 
   @override
-  State<SettingsZuhoererWidget> createState() => _SettingsZuhoererWidgetState();
+  State<SettingsZuhoererWidget> createState() => _SettingsZuhoererMaterialState();
 }
 
-class _SettingsZuhoererWidgetState extends State<SettingsZuhoererWidget> {
+class _SettingsZuhoererMaterialState extends State<SettingsZuhoererWidget> {
   late SettingsZuhoererModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

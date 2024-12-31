@@ -17,10 +17,10 @@ class RegLoginZuhoererWidget extends StatefulWidget {
   const RegLoginZuhoererWidget({super.key});
 
   @override
-  State<RegLoginZuhoererWidget> createState() => _RegLoginZuhoererWidgetState();
+  State<RegLoginZuhoererWidget> createState() => _RegLoginZuhoererMaterialState();
 }
 
-class _RegLoginZuhoererWidgetState extends State<RegLoginZuhoererWidget>
+class _RegLoginZuhoererMaterialState extends State<RegLoginZuhoererWidget>
     with TickerProviderStateMixin {
   late RegLoginZuhoererModel _model;
 

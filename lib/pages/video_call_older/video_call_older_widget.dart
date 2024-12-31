@@ -9,10 +9,10 @@ class VideoCallOlderWidget extends StatefulWidget {
   const VideoCallOlderWidget({super.key});
 
   @override
-  State<VideoCallOlderWidget> createState() => _VideoCallOlderWidgetState();
+  State<VideoCallOlderWidget> createState() => _VideoCallOlderMaterialState();
 }
 
-class _VideoCallOlderWidgetState extends State<VideoCallOlderWidget> {
+class _VideoCallOlderMaterialState extends State<VideoCallOlderWidget> {
   late VideoCallOlderModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

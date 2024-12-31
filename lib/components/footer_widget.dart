@@ -8,10 +8,10 @@ class FooterWidget extends StatefulWidget {
   const FooterWidget({super.key});
 
   @override
-  State<FooterWidget> createState() => _FooterWidgetState();
+  State<FooterWidget> createState() => _FooterMaterialState();
 }
 
-class _FooterWidgetState extends State<FooterWidget> {
+class _FooterMaterialState extends State<FooterWidget> {
   late FooterModel _model;
 
   @override

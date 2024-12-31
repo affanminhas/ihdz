@@ -1,6 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class FFButtonOptions {
   const FFButtonOptions({
@@ -69,10 +70,10 @@ class FFButtonWidget extends StatefulWidget {
   final bool showLoadingIndicator;
 
   @override
-  State<FFButtonWidget> createState() => _FFButtonWidgetState();
+  State<FFButtonWidget> createState() => _FFButtonMaterialState();
 }
 
-class _FFButtonWidgetState extends State<FFButtonWidget> {
+class _FFButtonMaterialState extends State<FFButtonWidget> {
   bool loading = false;
 
   int get maxLines => widget.options.maxLines ?? 1;
@@ -126,9 +127,9 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
         : null;
 
     ButtonStyle style = ButtonStyle(
-      shape: WidgetStateProperty.resolveWith<OutlinedBorder>(
+      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
         (states) {
-          if (states.contains(WidgetState.hovered) &&
+          if (states.contains(MaterialState.hovered) &&
               widget.options.hoverBorderSide != null) {
             return RoundedRectangleBorder(
               borderRadius:
@@ -143,43 +144,43 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           );
         },
       ),
-      foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+      foregroundColor: MaterialStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(WidgetState.disabled) &&
+          if (states.contains(MaterialState.disabled) &&
               widget.options.disabledTextColor != null) {
             return widget.options.disabledTextColor;
           }
-          if (states.contains(WidgetState.hovered) &&
+          if (states.contains(MaterialState.hovered) &&
               widget.options.hoverTextColor != null) {
             return widget.options.hoverTextColor;
           }
           return widget.options.textStyle?.color ?? Colors.white;
         },
       ),
-      backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+      backgroundColor: MaterialStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(WidgetState.disabled) &&
+          if (states.contains(MaterialState.disabled) &&
               widget.options.disabledColor != null) {
             return widget.options.disabledColor;
           }
-          if (states.contains(WidgetState.hovered) &&
+          if (states.contains(MaterialState.hovered) &&
               widget.options.hoverColor != null) {
             return widget.options.hoverColor;
           }
           return widget.options.color;
         },
       ),
-      overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
-        if (states.contains(WidgetState.pressed)) {
+      overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(MaterialState.pressed)) {
           return widget.options.splashColor;
         }
         return widget.options.hoverColor == null ? null : Colors.transparent;
       }),
-      padding: WidgetStateProperty.all(widget.options.padding ??
+      padding: MaterialStateProperty.all(widget.options.padding ??
           const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0)),
-      elevation: WidgetStateProperty.resolveWith<double?>(
+      elevation: MaterialStateProperty.resolveWith<double?>(
         (states) {
-          if (states.contains(WidgetState.hovered) &&
+          if (states.contains(MaterialState.hovered) &&
               widget.options.hoverElevation != null) {
             return widget.options.hoverElevation!;
           }
@@ -229,7 +230,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           label: textWidget,
           onPressed: onPressed,
           style: style,
-          iconAlignment: widget.options.iconAlignment ?? IconAlignment.start,
+          //iconAlignment: widget.options.iconAlignment ?? IconAlignment.start,
         ),
       );
     }

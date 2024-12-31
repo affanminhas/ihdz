@@ -9,10 +9,10 @@ class DatenschutzWidget extends StatefulWidget {
   const DatenschutzWidget({super.key});
 
   @override
-  State<DatenschutzWidget> createState() => _DatenschutzWidgetState();
+  State<DatenschutzWidget> createState() => _DatenschutzMaterialState();
 }
 
-class _DatenschutzWidgetState extends State<DatenschutzWidget> {
+class _DatenschutzMaterialState extends State<DatenschutzWidget> {
   late DatenschutzModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

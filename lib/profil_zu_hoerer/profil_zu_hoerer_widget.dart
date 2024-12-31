@@ -17,10 +17,10 @@ class ProfilZuHoererWidget extends StatefulWidget {
   const ProfilZuHoererWidget({super.key});
 
   @override
-  State<ProfilZuHoererWidget> createState() => _ProfilZuHoererWidgetState();
+  State<ProfilZuHoererWidget> createState() => _ProfilZuHoererMaterialState();
 }
 
-class _ProfilZuHoererWidgetState extends State<ProfilZuHoererWidget> {
+class _ProfilZuHoererMaterialState extends State<ProfilZuHoererWidget> {
   late ProfilZuHoererModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

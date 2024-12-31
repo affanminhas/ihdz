@@ -60,11 +60,11 @@ Theme wrapInMaterialDatePickerTheme(
 }) {
   final baseTheme = Theme.of(context);
   final dateTimeMaterialStateForegroundColor =
-      WidgetStateProperty.resolveWith((states) {
-    if (states.contains(WidgetState.disabled)) {
+      MaterialStateProperty.resolveWith((states) {
+    if (states.contains(MaterialState.disabled)) {
       return pickerForegroundColor.withOpacity(0.60);
     }
-    if (states.contains(WidgetState.selected)) {
+    if (states.contains(MaterialState.selected)) {
       return selectedDateTimeForegroundColor;
     }
     if (states.isEmpty) {
@@ -74,8 +74,8 @@ Theme wrapInMaterialDatePickerTheme(
   });
 
   final dateTimeMaterialStateBackgroundColor =
-      WidgetStateProperty.resolveWith((states) {
-    if (states.contains(WidgetState.selected)) {
+      MaterialStateProperty.resolveWith((states) {
+    if (states.contains(MaterialState.selected)) {
       return selectedDateTimeBackgroundColor;
     }
     return null;
@@ -96,15 +96,15 @@ Theme wrapInMaterialDatePickerTheme(
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-            foregroundColor: WidgetStatePropertyAll(
+            foregroundColor: MaterialStatePropertyAll(
               actionButtonForegroundColor,
             ),
-            overlayColor: WidgetStateProperty.resolveWith((states) {
-              if (states.contains(WidgetState.hovered)) {
+            overlayColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.hovered)) {
                 return actionButtonForegroundColor.withOpacity(0.04);
               }
-              if (states.contains(WidgetState.focused) ||
-                  states.contains(WidgetState.pressed)) {
+              if (states.contains(MaterialState.focused) ||
+                  states.contains(MaterialState.pressed)) {
                 return actionButtonForegroundColor.withOpacity(0.12);
               }
               return null;
@@ -150,15 +150,15 @@ Theme wrapInMaterialTimePickerTheme(
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-            foregroundColor: WidgetStatePropertyAll(
+            foregroundColor: MaterialStatePropertyAll(
               actionButtonForegroundColor,
             ),
-            overlayColor: WidgetStateProperty.resolveWith((states) {
-              if (states.contains(WidgetState.hovered)) {
+            overlayColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.hovered)) {
                 return actionButtonForegroundColor.withOpacity(0.04);
               }
-              if (states.contains(WidgetState.focused) ||
-                  states.contains(WidgetState.pressed)) {
+              if (states.contains(MaterialState.focused) ||
+                  states.contains(MaterialState.pressed)) {
                 return actionButtonForegroundColor.withOpacity(0.12);
               }
               return null;
@@ -168,19 +168,19 @@ Theme wrapInMaterialTimePickerTheme(
         backgroundColor: pickerBackgroundColor,
         hourMinuteTextColor: pickerForegroundColor,
         dialHandColor: selectedDateTimeBackgroundColor,
-        dialTextColor: WidgetStateColor.resolveWith((states) =>
-            states.contains(WidgetState.selected)
+        dialTextColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.selected)
                 ? selectedDateTimeForegroundColor
                 : pickerForegroundColor),
         dayPeriodBorderSide: BorderSide(
           color: pickerForegroundColor,
         ),
-        dayPeriodTextColor: WidgetStateColor.resolveWith((states) =>
-            states.contains(WidgetState.selected)
+        dayPeriodTextColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.selected)
                 ? selectedDateTimeForegroundColor
                 : pickerForegroundColor),
-        dayPeriodColor: WidgetStateColor.resolveWith((states) =>
-            states.contains(WidgetState.selected)
+        dayPeriodColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.selected)
                 ? selectedDateTimeBackgroundColor
                 : Colors.transparent),
         entryModeIconColor: pickerForegroundColor,

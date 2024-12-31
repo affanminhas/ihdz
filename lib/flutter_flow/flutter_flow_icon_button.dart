@@ -77,7 +77,7 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
   @override
   Widget build(BuildContext context) {
     ButtonStyle style = ButtonStyle(
-      shape: WidgetStateProperty.resolveWith<OutlinedBorder>(
+      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
         (states) {
           return RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(widget.borderRadius ?? 0),
@@ -88,7 +88,7 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
           );
         },
       ),
-      iconColor: WidgetStateProperty.resolveWith<Color?>(
+      iconColor: MaterialStateProperty.resolveWith<Color?>(
         (states) {
           if (states.contains(WidgetState.disabled) &&
               widget.disabledIconColor != null) {
@@ -101,7 +101,7 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
           return iconColor;
         },
       ),
-      backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+      backgroundColor: MaterialStateProperty.resolveWith<Color?>(
         (states) {
           if (states.contains(WidgetState.disabled) &&
               widget.disabledColor != null) {
@@ -115,7 +115,7 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
           return widget.fillColor;
         },
       ),
-      overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+      overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
         if (states.contains(WidgetState.pressed)) {
           return null;
         }

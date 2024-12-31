@@ -126,7 +126,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
         : null;
 
     ButtonStyle style = ButtonStyle(
-      shape: WidgetStateProperty.resolveWith<OutlinedBorder>(
+      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
         (states) {
           if (states.contains(WidgetState.hovered) &&
               widget.options.hoverBorderSide != null) {
@@ -143,7 +143,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           );
         },
       ),
-      foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+      foregroundColor: MaterialStateProperty.resolveWith<Color?>(
         (states) {
           if (states.contains(WidgetState.disabled) &&
               widget.options.disabledTextColor != null) {
@@ -156,7 +156,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           return widget.options.textStyle?.color ?? Colors.white;
         },
       ),
-      backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+      backgroundColor: MaterialStateProperty.resolveWith<Color?>(
         (states) {
           if (states.contains(WidgetState.disabled) &&
               widget.options.disabledColor != null) {
@@ -169,15 +169,15 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           return widget.options.color;
         },
       ),
-      overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+      overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
         if (states.contains(WidgetState.pressed)) {
           return widget.options.splashColor;
         }
         return widget.options.hoverColor == null ? null : Colors.transparent;
       }),
-      padding: WidgetStateProperty.all(widget.options.padding ??
+      padding: MaterialStateProperty.all(widget.options.padding ??
           const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0)),
-      elevation: WidgetStateProperty.resolveWith<double?>(
+      elevation: MaterialStateProperty.resolveWith<double?>(
         (states) {
           if (states.contains(WidgetState.hovered) &&
               widget.options.hoverElevation != null) {
